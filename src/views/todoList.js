@@ -24,6 +24,10 @@ function App() {
     setCount(count + 1);
   }
 
+  const listItems = list.map((item, index) =>
+    <li key={'list' + index}>{item}</li>
+  );
+
   return (
     <Fragment>
       <div>
@@ -35,10 +39,8 @@ function App() {
       <div className="list">
         <ul>
           <li>item000</li>
-          list: {list}
-          {list.forEach(item => {
-            <li>{item}</li>
-          })}
+          list: {list.length}
+          {listItems}
         </ul>
       </div>
     </Fragment>
