@@ -1,5 +1,5 @@
 import { Fragment } from 'react'; // Fragment 占位符，用于替换 div
-import Button from '../components/base/button';
+import Button from '../components/base/Button';
 import { useState } from 'react';
 
 
@@ -33,8 +33,8 @@ function App() {
       <div>
         <input type="text" value={inputValue} placeholder="请输入" onChange={handleInputChange}></input>
         <button type="button">新增</button>
-        <Button count={count} onClick={handleClick}></Button>
-        <Button count={count} onClick={handleClick}></Button>
+        <Button text={count} onClick={handleClick}></Button>
+        <Button text={count} onClick={handleClick}></Button>
       </div>
       <div className="list">
         <ul>

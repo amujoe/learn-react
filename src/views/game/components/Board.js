@@ -1,25 +1,28 @@
 import { useState, Fragment } from 'react';
 import Square from './Square';
 
-export default function Game () {
+export default function Game ({current, onClick}) {
   const [squares, setSquares] = useState(Array(9).fill(''));
   const [xIsNext, seXIsNext] = useState(false)
+
+  console.log("onClick", onClick)
 
   /** 点击时间 */
   function handleClick(index) {
     console.log('clicked!', index);
-    if(squares[index]){
+    let isWin = calculateWinner(squares)
+    if(squares[index] || isWin) {
+      isWin && alert('获胜者是' + isWin)
       return;
     }
     const nextSquares = squares.slice();
     xIsNext ? nextSquares[index] = "X" : nextSquares[index] = "O";
+    // 更新当前
     setSquares(nextSquares);
+    // 记录
+    onClick(nextSquares)
+    // 更新玩家
     seXIsNext(!xIsNext);
-
-    let isWin = calculateWinner(squares)
-    if(isWin){
-      alert('获胜者是' + isWin)
-    }
   }
 
   /** 验证是否已经成功 */

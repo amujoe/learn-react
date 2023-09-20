@@ -1,16 +1,7 @@
-// import { useState } from 'react';
 
-function Button({ count, onClick }) {
-  // const [count, setCount] = useState(0);
-  
-  // function handleClick() {
-  //  setCount(count + 1);
-  // }
-
+function Button({ text, onClick }) {
   return (
-    <button onClick={onClick}>
-     Clicked {count} times
-    </button>
+    <button onClick={onClick}>{text}</button>
   );
 }
 
